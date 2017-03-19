@@ -2,8 +2,9 @@ from html.parser import HTMLParser
 from urllib import parse
 
 
-class LinkFinder(HTMLParser):
+# Doc: https://docs.python.org/3/library/html.parser.html
 
+class LinkFinder(HTMLParser):
     def __init__(self, base_url, page_url):
         super().__init__()
         self.base_url = base_url
@@ -12,10 +13,10 @@ class LinkFinder(HTMLParser):
 
     # When we call HTMLParser feed() this function is called when it encounters an opening tag <a>
     def handle_starttag(self, tag, attrs):
-        if tag == 'a':
+        if tag == 'a':  # Only handle anchor element <a> tag
             for (attribute, value) in attrs:
                 if attribute == 'href':
-                    url = parse.urljoin(self.base_url, value)
+                    url = parse.urljoin(self.base_url, value)  # Add the base url if the url found is relative url
                     self.links.add(url)
 
     def page_links(self):

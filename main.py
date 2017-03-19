@@ -6,12 +6,11 @@ from file_utils import *
 
 PROJECT_NAME = 'simple_py_web_crawler'
 HOMEPAGE = 'http://dantri.com.vn/'
-DOMAIN_NAME = get_domain_name(HOMEPAGE)
-QUEUE_FILE = PROJECT_NAME + '/queue.txt'
-CRAWLED_FILE = PROJECT_NAME + '/crawled.txt'
-NUMBER_OF_THREADS = 8
-queue = Queue()
-Spider(PROJECT_NAME, HOMEPAGE, DOMAIN_NAME)
+DOMAIN_NAME = ""
+NUMBER_OF_THREADS = 1
+QUEUE_FILE = ""
+CRAWLED_FILE = ""
+
 
 
 # Create worker threads (will die when main exits)
@@ -46,5 +45,15 @@ def crawl():
         create_jobs()
 
 
+print(" ----- Simple Py Web Crawler ----- ")
+website = input("Input your website to crawl: ")
+if not website == "":
+    HOMEPAGE = website
+    PROJECT_NAME = get_sub_domain_name(HOMEPAGE)
+    DOMAIN_NAME = get_domain_name(HOMEPAGE)
+    QUEUE_FILE = PROJECT_NAME + '/queue.txt'
+    CRAWLED_FILE = PROJECT_NAME + '/crawled.txt'
+queue = Queue()
+Spider(PROJECT_NAME, HOMEPAGE, DOMAIN_NAME)
 create_workers()
 crawl()
