@@ -18,7 +18,7 @@ class Spider:
         Spider.base_url = base_url
         Spider.domain_name = domain_name
         Spider.frontier_file = Spider.folder_name + '/frontier.txt'
-        Spider.fetched_file = Spider.folder_name + '/fetched.txt'
+        Spider.fetched_file = Spider.folder_name + '/downloadList.txt'
         self.init()
         self.fetch_page('First spider', Spider.base_url)
 

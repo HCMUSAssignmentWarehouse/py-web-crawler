@@ -49,7 +49,7 @@ if not website == "":
     FOLDER_NAME = get_sub_domain_name(WEBSITE)
     DOMAIN_NAME = get_domain_name(WEBSITE)
 FRONTIER_FILE_NAME = FOLDER_NAME + '/frontier.txt'
-FETCHED_FILE_NAME = FOLDER_NAME + '/fetched.txt'
+FETCHED_FILE_NAME = FOLDER_NAME + '/downloadList.txt'
 frontier = Queue()
 Spider(FOLDER_NAME, WEBSITE, DOMAIN_NAME)
 create_worker_threads()

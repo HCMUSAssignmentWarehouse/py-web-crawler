@@ -26,7 +26,7 @@ def create_project_directory(dir):
 # Create frontier and fetched files (if not created)
 def create_data_files(folder_name, base_url):
     frontier = os.path.join(folder_name, 'frontier.txt')
-    fetched = os.path.join(folder_name, "fetched.txt")
+    fetched = os.path.join(folder_name, "downloadList.txt")
     if not os.path.isfile(frontier):
         write_to_file(frontier, base_url, True)
     if not os.path.isfile(fetched):
